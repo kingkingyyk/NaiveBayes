@@ -6,8 +6,8 @@ import java.util.Map;
 
 public class NaiveBayes {
 	
-	private static String rootDir = "D:\\Documents\\King\\Desktop\\lingspam_public\\lemm_stop";
-	private static String [] trainingDataDirs = {"part1", "part2","part3","part4","part5","part6","part7","part8","part9"};
+	private static String rootDir = "D:\\Documents\\King\\Desktop\\aaaa";
+	private static String [] trainingDataDirs = {"part1"};//, "part2","part3","part4","part5","part6","part7","part8","part9"};
 	private static String [] testDataDirs = {"part10"};
 	
 	private static ArrayList<DataFile> scanFiles(File dir, String [] dirNames) throws Exception {
@@ -37,7 +37,7 @@ public class NaiveBayes {
 				bestFit=key;
 			}
 			System.out.println(testD.path + " - "+probability);
-			//System.out.println(testD.path + " - "+bestFit);
+			System.out.println(testD.path + " - "+bestFit);
 		}
 		
 		

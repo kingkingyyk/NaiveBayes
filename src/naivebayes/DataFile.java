@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.util.HashMap;
 import java.util.StringTokenizer;
 
-public class DataFile {
+public class DataFile implements Comparable<DataFile> {
 	public File path;
 	public String cls;
 	private HashMap<String,Integer> dictionary;
@@ -50,6 +50,11 @@ public class DataFile {
 
 	public int getWordCount() {
 		return wordCount;
+	}
+
+	@Override
+	public int compareTo(DataFile o) {
+		return this.path.compareTo(o.path);
 	}
 	
 	

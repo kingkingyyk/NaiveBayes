@@ -5,6 +5,7 @@ import java.math.MathContext;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 
 public class NaiveBayesData {
@@ -24,7 +25,7 @@ public class NaiveBayesData {
 		for (String key : map.keySet()) wordCount.put(key, wordCount.getOrDefault(key,0)+map.get(key));
 	}
 	
-	public void train1(ArrayList<DataFile> dfs) {
+	public void train1(List<DataFile> dfs) {
 		for (DataFile df : dfs) {
 			mergeWordCount(df.getDictionary()); //all distinct words in training text, total number of words in Texti.(count duplicates multiple times)
 			classesCount.put(df.cls, classesCount.getOrDefault(df.cls,0)+1); //P(Ci) for every class Ci. P(Ci) =( Number of documents of class Ci ) /( total number of documents ).

@@ -46,10 +46,10 @@ public class NaiveBayesData {
 	public Map<String, Double> predict1(DataFile df) {
 		HashMap<String, Double> classProbability=new HashMap<>();
 		for (String cls : classesCount.keySet()) {
-			double Ci=Math.log10(classesProbability.get(cls));
+			double Ci=Math.log(classesProbability.get(cls));
 			for (String word : df.getDictionary().keySet()) {
-				double wordProbabilityGlobal = df.getDictionary().get(word) * ((wordAndClassesCount.getOrDefault(constructKey(cls, word),0)+1.0) / wordCount.getOrDefault(word,1));
-				Ci+=Math.log10(wordProbabilityGlobal);
+				double wordProbabilityGlobal = df.getDictionary().get(word) * ((wordAndClassesCount.getOrDefault(constructKey(cls, word),0)+1.0) / classWords.get(cls).size());
+				Ci+=Math.log(wordProbabilityGlobal);
 			}
 			classProbability.put(cls, Ci);
 		}
